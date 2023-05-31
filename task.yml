@@ -1,0 +1,9 @@
+---
+- hosts: web
+  user: root
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: Install Apach2
+            action: apt name=apache2 state=present

@@ -1,0 +1,15 @@
+---
+- name: webserver
+  hosts: all
+  user: root
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: Install apache2 
+            action: apt name=apache2 state=present
+            notify: restart HTTPD
+
+  handlers:
+          - name: restart HTTPD
+            action: service name=apache2 state=restarted
