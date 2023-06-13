@@ -1,0 +1,10 @@
+- name: webserver
+  hosts: web01
+  user: root
+  become: yes
+
+  tasks:
+  - name: install mysql
+    apt:
+      name: apache2
+      state: present
